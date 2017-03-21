@@ -95,53 +95,19 @@ Other CRON schedule examples:
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob using the Azure Scheduler
 The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
 
-The Azure Portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [classic portal](http://manage.windowsazure.com).
+Add a new scheduler job by clicking the + icon in the left nav bar and type in **scheduler** 
 
-1. In the [classic portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
-2. In the **How to Run** box, choose **Run on a schedule**.
-   
-    ![New Scheduled Job][NewScheduledJob]
-3. Choose the **Scheduler Region** for your job, and then click the arrow on the bottom right of the dialog to proceed to the next screen.
-4. In the **Create Job** dialog, choose the type of **Recurrence** you want: **One-time job** or **Recurring job**.
-   
-    ![Schedule Recurrence][SchdRecurrence]
-5. Also choose a **Starting** time: **Now** or **At a specific time**.
-   
-    ![Schedule Start Time][SchdStart]
-6. If you want to start at a specific time, choose your starting time values under **Starting On**.
-   
-    ![Schedule Start at a Specific Time][SchdStartOn]
-7. If you chose a recurring job, you have the **Recur Every** option to specify the frequency of occurrence and the **Ending On** option to specify an ending time.
-   
-    ![Schedule Recurrence][SchdRecurEvery]
-8. If you choose **Weeks**, you can select the **On a Particular Schedule** box and specify the days of the week that you want the job to run.
-   
-    ![Schedule Days of the Week][SchdWeeksOnParticular]
-9. If you choose **Months** and select the **On a Particular Schedule** box, you can set the job to run on particular numbered **Days** in the month. 
-   
-    ![Schedule Particular Dates in the Month][SchdMonthsOnPartDays]
-10. If you choose **Week Days**, you can select which day or days of the week in the month you want the job to run on.
-    
-     ![Schedule Particular Week Days in a Month][SchdMonthsOnPartWeekDays]
-11. Finally, you can also use the **Occurrences** option to choose which week in the month (first, second, third etc.) you want the job to run on the week days you specified.
-    
-    ![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
-12. After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information. Historical information for the last 30  WebJobs is maintained.
-    
-    ![Jobs list][WebJobsListWithSeveralJobs]
+1. Enter a **Name**
+2. Select a **Job collection** *you would have one since you already created a webjob)*
+3. Verify **subscription**
+4. Configure **Action settings** - here you would enter the url of the webjob trigger, the method would be Post and configre the Authentication setting *url, username and password is available in your webjob properties*
+5. Configre **Schedule** *recurrence and start/stop settings are set here*
+6. Click **Create**
+7. From the **search resources** text box in the top middle bar - enter **Scheduler Job collections** to view your scheduled job, its status and trigger a test run.
 
 ### <a name="Scheduler"></a>Scheduled jobs and Azure Scheduler
 Scheduled jobs can be further configured in the Azure Scheduler pages of the [classic portal](http://manage.windowsazure.com).
 
-1. On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
-   
-   ![Link to Azure Scheduler][LinkToScheduler]
-2. On the Scheduler page, click the job.
-   
-    ![Job on the Scheduler portal page][SchedulerPortal]
-3. The **Job Action** page opens, where you can further configure the job. 
-   
-    ![Job Action PageInScheduler][JobActionPageInScheduler]
 
 ## <a name="ViewJobHistory"></a>View the job history
 1. To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the **Logs** column of the WebJobs blade. (You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)
